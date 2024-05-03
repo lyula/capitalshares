@@ -1,0 +1,17 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the users_init() hook (in hooks/users.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="users-first_name-<%%VALUE(id)%%>" class="users-first_name"><%%SELECT%%><%%VALUE(first_name)%%><%%ENDSELECT%%></td>
+		<td id="users-last_name-<%%VALUE(id)%%>" class="users-last_name"><%%SELECT%%><%%VALUE(last_name)%%><%%ENDSELECT%%></td>
+		<td id="users-id_number-<%%VALUE(id)%%>" class="users-id_number"><%%SELECT%%><%%VALUE(id_number)%%><%%ENDSELECT%%></td>
+		<td id="users-username-<%%VALUE(id)%%>" class="users-username"><%%SELECT%%><%%VALUE(username)%%><%%ENDSELECT%%></td>
+		<td id="users-email-<%%VALUE(id)%%>" class="users-email"><a href="mailto:<%%VALUE(email)%%>" title="<%%VALUE(email)%%>" class="btn btn-default"><i class="glyphicon glyphicon-envelope text-info"></i></a></td>
+		<td id="users-password-<%%VALUE(id)%%>" class="users-password"><%%SELECT%%><%%VALUE(password)%%><%%ENDSELECT%%></td>
+		<td id="users-date_joined-<%%VALUE(id)%%>" class="users-date_joined"><%%SELECT%%><%%VALUE(date_joined)%%><%%ENDSELECT%%></td>
+		<td id="users-refferal_code-<%%VALUE(id)%%>" class="users-refferal_code"><%%SELECT%%><%%VALUE(refferal_code)%%><%%ENDSELECT%%></td>
+		<td id="users-reffered_by-<%%VALUE(id)%%>" class="users-reffered_by"><%%SELECT%%><%%VALUE(reffered_by)%%><%%ENDSELECT%%></td>
+		<td id="users-ref_paid-<%%VALUE(id)%%>" class="users-ref_paid"><%%SELECT%%><%%VALUE(ref_paid)%%><%%ENDSELECT%%></td>

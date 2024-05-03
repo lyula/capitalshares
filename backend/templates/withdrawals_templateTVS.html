@@ -1,0 +1,14 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the withdrawals_init() hook (in hooks/withdrawals.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="withdrawals-user_id-<%%VALUE(id)%%>" class="withdrawals-user_id text-bold"><%%VALUE(user_id)%%></td>
+		<td id="withdrawals-amount-<%%VALUE(id)%%>" class="withdrawals-amount text-bold"><%%VALUE(amount)%%></td>
+		<td id="withdrawals-phone_number-<%%VALUE(id)%%>" class="withdrawals-phone_number text-bold"><%%VALUE(phone_number)%%></td>
+		<td id="withdrawals-date-<%%VALUE(id)%%>" class="withdrawals-date text-bold"><%%VALUE(date)%%></td>
+		<td id="withdrawals-status-<%%VALUE(id)%%>" class="withdrawals-status text-bold"><%%VALUE(status)%%></td>
+		<td id="withdrawals-mpesa_code-<%%VALUE(id)%%>" class="withdrawals-mpesa_code text-bold"><%%VALUE(mpesa_code)%%></td>
+		<td id="withdrawals-payment_refference-<%%VALUE(id)%%>" class="withdrawals-payment_refference text-bold"><%%VALUE(payment_refference)%%></td>

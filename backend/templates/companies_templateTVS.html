@@ -1,0 +1,12 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the companies_init() hook (in hooks/companies.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="companies-id-<%%VALUE(id)%%>" class="companies-id text-right text-bold"><%%VALUE(id)%%></td>
+		<td id="companies-image-<%%VALUE(id)%%>" class="companies-image text-bold"><a href="<%%BASE_UPLOAD_PATH%%><%%VALUE(image)%%>" data-lightbox="companies-image"><img src="thumbnail.php?i=<%%VALUE(image)%%>&t=companies&f=image&v=tv" class="img-thumbnail"></a></td>
+		<td id="companies-name-<%%VALUE(id)%%>" class="companies-name text-bold"><%%VALUE(name)%%></td>
+		<td id="companies-share_price-<%%VALUE(id)%%>" class="companies-share_price text-right text-bold"><%%VALUE(share_price)%%></td>
+		<td id="companies-percentage-<%%VALUE(id)%%>" class="companies-percentage text-bold"><%%VALUE(percentage)%%></td>

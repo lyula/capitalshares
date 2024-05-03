@@ -1,0 +1,14 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the deposits_init() hook (in hooks/deposits.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="deposits-user_id-<%%VALUE(id)%%>" class="deposits-user_id text-bold"><%%VALUE(user_id)%%></td>
+		<td id="deposits-amount-<%%VALUE(id)%%>" class="deposits-amount text-right text-bold"><%%VALUE(amount)%%></td>
+		<td id="deposits-phone_number-<%%VALUE(id)%%>" class="deposits-phone_number text-bold"><%%VALUE(phone_number)%%></td>
+		<td id="deposits-date-<%%VALUE(id)%%>" class="deposits-date text-bold"><%%VALUE(date)%%></td>
+		<td id="deposits-status-<%%VALUE(id)%%>" class="deposits-status text-bold"><%%VALUE(status)%%></td>
+		<td id="deposits-mpesa_code-<%%VALUE(id)%%>" class="deposits-mpesa_code text-bold"><%%VALUE(mpesa_code)%%></td>
+		<td id="deposits-payment_refference-<%%VALUE(id)%%>" class="deposits-payment_refference text-bold"><%%VALUE(payment_refference)%%></td>

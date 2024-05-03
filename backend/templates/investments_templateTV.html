@@ -1,0 +1,13 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the investments_init() hook (in hooks/investments.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="investments-user_id-<%%VALUE(id)%%>" class="investments-user_id"><%%SELECT%%><%%VALUE(user_id)%%><%%ENDSELECT%%></td>
+		<td id="investments-company-<%%VALUE(id)%%>" class="investments-company"><%%SELECT%%><%%VALUE(company)%%><%%ENDSELECT%%></td>
+		<td id="investments-amount-<%%VALUE(id)%%>" class="investments-amount"><%%SELECT%%><%%VALUE(amount)%%><%%ENDSELECT%%></td>
+		<td id="investments-pay_per_day-<%%VALUE(id)%%>" class="investments-pay_per_day"><%%SELECT%%><%%VALUE(pay_per_day)%%><%%ENDSELECT%%></td>
+		<td id="investments-date_invested-<%%VALUE(id)%%>" class="investments-date_invested"><%%SELECT%%><%%VALUE(date_invested)%%><%%ENDSELECT%%></td>
+		<td id="investments-shares_sold-<%%VALUE(id)%%>" class="investments-shares_sold"><%%SELECT%%><%%VALUE(shares_sold)%%><%%ENDSELECT%%></td>

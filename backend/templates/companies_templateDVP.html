@@ -1,0 +1,97 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: ID -->
+		<div class="form-group companies-id" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ID</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(id)%%></div>
+			</div>
+		</div>
+		<!-- Field: Image -->
+		<div class="form-group companies-image" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Image</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><script>
+				var imageSrc1<%%RND1%%>='<%%BASE_UPLOAD_PATH%%><%%VALUE(image)%%>';
+				var imageSrc2<%%RND1%%>='thumbnail.php?t=companies&f=image&i=<%%VALUE(image)%%>&v=dv'
+			</script>
+			<a href="#" onclick="$j('#imageImg<%%RND1%%>').attr('src', ($j('#imageImg<%%RND1%%>').attr('src').search(/thumbnail\.php/) != -1 && imageSrc1<%%RND1%%> != '<%%BASE_UPLOAD_PATH%%>' ? imageSrc1<%%RND1%%> : imageSrc2<%%RND1%%>)); return false;"><img id="imageImg<%%RND1%%>" src="thumbnail.php?t=companies&f=image&i=<%%VALUE(image)%%>&v=dv" class="img-thumbnail"></a></div>
+			</div>
+		</div>
+		<!-- Field: Name -->
+		<div class="form-group companies-name" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(name)%%></div>
+			</div>
+		</div>
+		<!-- Field: Share price -->
+		<div class="form-group companies-share_price" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Share price</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(share_price)%%></div>
+			</div>
+		</div>
+		<!-- Field: Percentage -->
+		<div class="form-group companies-percentage" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Percentage</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(percentage)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>
+<!-- child records -->
+<div class="panel-body">
+	<div id="companies-children"></div>
+</div>
+
+<script>
+	$j(function() {
+		/* prevent loading child records in multiple DVP */
+		if($j('[id=companies-children]').length > 1) return;
+
+		post(
+			'parent-children.php', {
+				ParentTable: 'companies',
+				SelectedID: '<%%VALUE(id)%%>',
+				Operation: 'show-children-printable'
+			},
+			'companies-children',
+			'disable-element',
+			'loading-element',
+			apply_persisting_children
+		);
+
+		$j('form').on('click', '#children-tabs button[data-target]', function() {
+			$j(this).toggleClass('active');
+			persist_expanded_child($j(this).attr('id'));
+		});
+	})
+</script>
+
